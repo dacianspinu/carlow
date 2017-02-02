@@ -1,0 +1,1 @@
+The components folder will be used to separate small directives from the rest of the application 

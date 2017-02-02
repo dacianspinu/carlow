@@ -1,0 +1,2 @@
+This folder is going to be used to create services that are going to be
+used app-wide, not just in a view.

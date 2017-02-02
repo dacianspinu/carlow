@@ -1,0 +1,33 @@
+html {
+  height: 100%;
+
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-outer-container {
+  height: 100%;
+}
+
+.main_view-container {
+  background-color: white;
+  height: 100%;
+
+  transition: background-color .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.main_view-container.visible {
+  background-color: #F8F8F8;
+}
+
+.site-center {
+  width: 62.5%;
+  margin: 0px auto;
+  max-width: 900px;
+}

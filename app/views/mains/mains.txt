@@ -1,0 +1,3 @@
+The mains will be actuall screens of the application, like the login page, the admin panel, and so on.
+
+In them we will include sections which finally will compose a "main".
