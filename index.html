@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Carlow</title>
     <!-- general styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:400,700">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+
     <link rel="stylesheet" href="./node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"></link>
     <link rel="stylesheet" href="./app/shared/styles/appStyle.css"></link>
     <link rel="stylesheet" href="./app/shared/icons/style.css"></link>
+
     <!-- mains styles -->
+    <link rel="stylesheet" href="./app/views/mains/home.css"></link>
       
     <!-- sections styles -->
       
@@ -17,7 +20,7 @@
   </head>
   <body ng-controller="appController">
     <div class="app-outer-container">
-        KSLKLK
+        <ui-view></ui-view>
     </div>
 
     <!-- Sources for non-application specific files (like libraries) -->
@@ -35,6 +38,7 @@
     
     <script type="text/javascript" src="./app/config/config.js"></script>
 
+    <script type="text/javascript" src="./app/views/mains/homeController.js"></script>
     
   </body>
 </html>
