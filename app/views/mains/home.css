@@ -1,0 +1,124 @@
+.view-wrapper {
+    width: 100%;
+    height: 100%;
+
+    text-align: left;
+
+    font-family: 'Space Mono';
+    color: lightgrey;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.view-wrapper-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url('../../../app/shared/images/background.jpg');
+    background-size: cover;
+    background-position: center, center;
+
+    filter: blur(0px);
+    opacity: 0;
+
+    transition: filter 1s cubic-bezier(0.4, 0.0, 0.2, 1), opacity .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    transform: scale(1.2);       /*white edges that need to dissapear*/
+}
+
+.view-wrapper-background.blurred {
+    filter: blur(5px);
+    opacity: 1;
+}
+
+
+.view-wrapper:before {
+    content: '';
+    width: 0px;
+    height: 100%;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.view-wrapper-background:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: black;
+
+    opacity: 0.75;
+}
+
+
+.upload-section {
+    display: inline-block;
+    vertical-align: middle;
+
+    z-index: 1;
+    
+    position: relative;
+
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition: opacity .3s ease, transform .3s ease;
+
+    margin-left: 10%;
+}
+
+.upload-section.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.upload-section p {
+    margin: 0;
+    font-size: 24px;
+}
+
+.upload-section h1 {
+    margin: 0;
+    font-size: 52px;
+}
+
+.upload-button {
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-top: 30px;
+
+    border-radius: 30px;
+
+    background-color: #45C450;
+    display: inline-block;
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform .3s ease;
+
+    z-index: 2;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.upload-button:hover {
+    transform: translateY(-6px);
+}
