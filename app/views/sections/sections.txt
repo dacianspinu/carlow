@@ -1,3 +1,0 @@
-The sections folder will be used to create big parts of the application
-but which are smaller than the mains. Things like a big chunk of screen like
-a list of invoices, a side-menu, etc.
