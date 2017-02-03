@@ -21,5 +21,9 @@
             $scope.visibleUploadSection = true;
         }, 300);
     }
+
+    $scope.uploadFile = function() {
+        $scope.uploadedFile = true;
+    }
   }
 })();

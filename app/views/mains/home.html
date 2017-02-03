@@ -1,8 +1,24 @@
-<div class="view-wrapper" ng-controller="homeController">
-    <div class="view-wrapper-background" ng-class="{'blurred': blurredBackground}"></div>
-    <div class="upload-section" ng-class="{'visible': visibleUploadSection}">
-        <h1>Welcome to Carlow</h1>
-        <p>Please upload a file to see statistics about it</p>
-        <div class="upload-button" ng-click="uploadFile()">Upload</div>
+<div ng-controller="homeController" style="height: 100%; font-size: 0px">
+    <div class="view-wrapper" ng-class="{'half': uploadedFile}">
+        <div class="view-wrapper-background" ng-class="{'blurred': blurredBackground}"></div>
+        <div class="upload-section" ng-class="{'visible': visibleUploadSection}">
+            <h1>Welcome to Carlow</h1>
+            <p>Please upload a file to see statistics about it</p>
+            <div class="upload-button" ng-click="uploadFile()">Upload</div>
+        </div>
+    </div>
+    <div class="details-wrapper" ng-class="{'visible': uploadedFile}">
+        <div class="section one">
+            Sources
+        </div>
+        <div class="section two">
+            Topics
+        </div>
+        <div class="section three">
+            Sentiment Analysis
+        </div>
+        <div class="section four">
+            NER
+        </div>
     </div>
 </div>

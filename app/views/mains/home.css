@@ -10,7 +10,35 @@
     position: relative;
 
     overflow: hidden;
+
+    display: inline-block;
+    vertical-align: top;
+
+    transition: transform .3s ease;
 }
+
+.view-wrapper.half {
+    transform: scaleX(.5) translateX(-50%)
+}
+
+.view-wrapper.half .view-wrapper-background {
+    transform: scale(2, 1.03);
+}
+
+.view-wrapper.half .upload-section.visible {
+    transform: scaleX(2);
+    margin-left: 30%;
+}
+
+.view-wrapper.half .upload-section.visible h1 {
+   font-size: 52px;
+}
+
+.view-wrapper.half .upload-section.visible p {
+    font-size: 24px;
+}
+
+
 
 .view-wrapper-background {
     position: absolute;
@@ -27,7 +55,7 @@
     filter: blur(0px);
     opacity: 0;
 
-    transition: filter 1s cubic-bezier(0.4, 0.0, 0.2, 1), opacity .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: filter .3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity .3s cubic-bezier(0.4, 0.0, 0.2, 1);
 
     transform: scale(1.2);       /*white edges that need to dissapear*/
 }
@@ -90,7 +118,7 @@
 
 .upload-section h1 {
     margin: 0;
-    font-size: 52px;
+    font-size: 64px;
 }
 
 .upload-button {
@@ -121,4 +149,48 @@
 
 .upload-button:hover {
     transform: translateY(-6px);
+}
+
+.details-wrapper {
+    width: 50%;
+    height: 100%;
+
+    display: inline-block;
+    vertical-align: top;
+
+    position: absolute;
+    transform: translateX(0%);
+
+    transition: transform .3s ease;
+}
+
+
+
+.details-wrapper.visible {
+    transform: translateX(-100%);
+}
+
+.section {
+    height: 25vh;
+    width: 100%;
+
+    font-size: 24px;
+
+    font-family: 'Space Mono';
+}
+
+.section.one {
+    background-color: #D9F9F4;
+}
+
+.section.two {
+    background-color: #9CD9DE;
+}
+
+.section.three {
+    background-color: #86C1D4;
+}
+
+.section.four {
+    background-color: #5A92AF;
 }
