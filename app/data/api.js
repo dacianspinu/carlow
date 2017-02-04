@@ -3,7 +3,7 @@
 
     var serviceId = 'api';
 
-    var module = angular.module('dpla.services');
+    var module = angular.module('carlow.services');
 
     module.factory(serviceId, ['$http', 'config', '$q', '$httpParamSerializerJQLike', api]);
 
@@ -11,6 +11,26 @@
         var baseUrl = config.apiUrl;
         var originUrl = config.originUrl;
         var service = {
+            getSources: function(fileId) {
+                var url = baseUrl + fileId;
+
+                return getWithHeaders(url);
+            },
+            getTopics: function(fileId) {
+                var url = baseUrl + fileId;
+
+                return getWithHeaders(url);
+            },
+            getSentimentAnalysis: function(fileId) {
+                var url = baseUrl + fileId;
+
+                return getWithHeaders(url);
+            },
+            getNer: function(fileId) {
+                var url = baseUrl + fileId;
+
+                return getWithHeaders(url);
+            }
         }
 
         function getHeaders(json, enableBlob) {

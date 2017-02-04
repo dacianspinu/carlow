@@ -162,6 +162,8 @@
     transform: translateX(0%);
 
     transition: transform .3s ease;
+
+    overflow-x: scroll;
 }
 
 
@@ -177,6 +179,17 @@
     font-size: 24px;
 
     font-family: 'Space Mono';
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
 }
 
 .section.one {
@@ -194,3 +207,12 @@
 .section.four {
     background-color: #5A92AF;
 }
+
+.section .content {
+    font-size: 14px;
+}
+
+.section.full {
+    height: auto;
+}
+
