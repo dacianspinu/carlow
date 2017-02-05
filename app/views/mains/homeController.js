@@ -26,7 +26,7 @@
     $scope.uploadFile = function(file) {
         if(file) {
             Upload.upload({
-                url: 'http://weak-signals.herokuapp.com/spln/upload/' + file.name + '/',
+                url: 'https://weak-signals.herokuapp.com/spln/upload/' + file.name + '/',
                 file: file
             }).then(function(response) {
                 $scope.uploadedFile = true;
