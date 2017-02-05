@@ -8,6 +8,7 @@
       ['$rootScope', '$scope', '$window', '$timeout', 'Upload', 'api', homeController]);
 
   function homeController($rootScope, $scope, $window, $timeout, Upload, api) {
+
     $(document).ready(function() {
         $timeout(function() {
             startInteractions();
@@ -25,18 +26,18 @@
     $scope.uploadFile = function(file) {
         if(file) {
             Upload.upload({
-                url: 'insert url',
-                data: file
+                url: 'http://weak-signals.herokuapp.com/spln/upload/' + file.name + '/',
+                file: file
             }).then(function(response) {
-                console.log('Success' + response);
-
                 $scope.uploadedFile = true;
+
+                console.log(response);
 
                 $scope.fileId = response.data.fileId;
             }, function(error) {
-                console.log('Error' + error)
+
             }, function(progress) {
-                console.log(progress)
+                // console.log(JSON.stringify(progress))
             })
         }
     }
@@ -48,24 +49,26 @@
 
     $scope.getData = function(type) {
         if (type === 'sources') {
-            $('.section.one').toggleClass('full');
             api.getSources($scope.fileId).then(function(response) {
+                $('.section.one').toggleClass('full');
                 $scope.sources = response.data;
             })
         } else if (type === 'topics') {
-            $('.section.two').toggleClass('full');
             api.getTopics($scope.fileId).then(function(response) {
+                $('.section.two').toggleClass('full');
                 $scope.topics = response.data;
             })
         } else if (type === 'sentiment') {
-            $('.section.three').toggleClass('full');
-            api.getSentimentAnalysis(fileId).then(function(response) {
+            api.getSentimentAnalysis($scope.fileId).then(function(response) {
+                $('.section.three').toggleClass('full');
                 $scope.sentiments = response.data;
             })
         } else if (type === 'ner') {
-            $('.section.four').toggleCLass('full');
-            api.getNER(fileId).then(function(response) {
-                $scope.ner = response.data;
+            api.getNER($scope.fileId).then(function(response) {
+                $('.section.four').toggleClass('full');
+                $scope.ner = JSON.parse(response.data.data)["NER"];
+
+                console.log($scope.ner)
             })
         }
     }

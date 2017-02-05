@@ -4,46 +4,53 @@
         <div class="upload-section" ng-class="{'visible': visibleUploadSection}">
             <h1>Welcome to Carlow</h1>
             <p>Please upload a file to see statistics about it</p>
-            <div class="upload-button" ng-click="showHalf()">Upload</div>
-            <!--uncomment the next line and comment the previous line when you want to use the app with the actual API after integration-->
-            <!--<div class="upload-button" ngf-select="uploadFile($file)">Upload</div>-->
-            
+
+            <div class="upload-button" ngf-select="uploadFile($file)" ngf-multiple="false">Upload</div>
         </div>
     </div>
     <div class="details-wrapper" ng-class="{'visible': uploadedFile}">
         <div class="section one" ng-click="getData('sources')">
-            <div class="section-title">Sources</div>
-            <div class="content" ng-click="toggleSection('sources')">
-                <!--{{ sources }}-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quisquam voluptates nam, enim aliquid exercitationem veritatis quasi! Iste magnam iusto maiores veritatis minima id, aliquid officiis totam, numquam corporis laudantium.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi inventore porro tempora suscipit sapiente vero labore facere, laboriosam nihil voluptates at error atque hic aperiam deleniti neque soluta, similique laborum.
+            <div class="section-title" ng-click="toggleSection('sources')">Sources</div>
+            <div class="content">
+                <div>{{ sources.message }}</div>
+
+
+                <div>{{ sources.data }}</div>
+                
             </div>
         </div>
         <div class="section two" ng-click="getData('topics')">
-            <div class="section-title">Topics</div>
+            <div class="section-title" ng-click="toggleSection('topics')">Topics</div>
 
-            <div class="content" ng-click="toggleSection('topics')">
-                <!-- {{ topics }} -->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam veniam, autem animi quod aspernatur? Illo, culpa voluptate quibusdam similique nesciunt dignissimos aperiam, eos repudiandae maiores minima quos impedit distinctio, odio?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam accusantium vero harum provident alias rem, ipsam, perferendis et eveniet excepturi quibusdam sunt reiciendis inventore incidunt laborum sint a ea. Dolorum!
+            <div class="content" >
+                 <div>{{topics.message}}</div>
+
+                 
             </div>
         </div>
         <div class="section three" ng-click="getData('sentiment')">
-            <div class="section-title">Sentiment Analysis</div>
+            <div class="section-title" ng-click="toggleSection('ner')">Sentiment Analysis</div>
 
-            <div class="content" ng-click="toggleSection('sentiment')">
-                <!--{{ sentiments }}-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis explicabo mollitia dolore tempora cumque ipsa recusandae, necessitatibus enim, suscipit id cum vero excepturi hic, rerum optio accusantium cupiditate deserunt eveniet?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis odit est distinctio cum, minima odio non delectus consequuntur error neque sit itaque quasi cumque dicta accusamus fugiat iusto! Sunt, minima.
+            <div class="content">
+                {{ sentiments.message }}
+
+                <div>{{sentiments.data[0].m_predictedClass}}</div>
+                <div>{{sentiments.data[0].m_classifierAccuracy}}</div>
+                <div>{{sentiments.data[0].m_probability}}</div>
             </div>
         </div>
         <div class="section four" ng-click="getData('ner')">
-            <div class="section-title">NER</div>
+            <div class="section-title" ng-click="toggleSection('ner')">NER</div>
 
-            <div class="content" ng-click="toggleSection('ner')">
-                <!--{{ ner }}-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque asperiores officiis dignissimos temporibus sapiente illum sequi ab mollitia libero incidunt. Ut eveniet assumenda ea nesciunt nihil tenetur repellat. Recusandae, possimus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam architecto explicabo libero repellat tempore quia quod rem aliquam corrupti totam. Distinctio cupiditate itaque ullam minus in sit soluta quibusdam pariatur.
+            
+            <div class="content" ng-if="ner">
+
+                <div ng-repeat="class in ner track by $index" >
+                    <div ng-repeat="(key, val) in class track by $index">
+                        {{key}} : {{val}}
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

@@ -12,22 +12,21 @@
         var originUrl = config.originUrl;
         var service = {
             getSources: function(fileId) {
-                var url = baseUrl + fileId;
-
+                var url = baseUrl + '/source' + '/' + fileId;
                 return getWithHeaders(url);
             },
             getTopics: function(fileId) {
-                var url = baseUrl + fileId;
+                var url = baseUrl + '/topics' + '/' + fileId;
 
                 return getWithHeaders(url);
             },
             getSentimentAnalysis: function(fileId) {
-                var url = baseUrl + fileId;
+                var url = baseUrl + '/sentiments' + '/' + fileId;
 
                 return getWithHeaders(url);
             },
-            getNer: function(fileId) {
-                var url = baseUrl + fileId;
+            getNER: function(fileId) {
+                var url = baseUrl + '/ner' + '/' + fileId;
 
                 return getWithHeaders(url);
             }
