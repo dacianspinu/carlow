@@ -27,6 +27,7 @@
         if(file) {
             Upload.upload({
                 url: 'https://weak-signals.herokuapp.com/spln/upload/' + file.name + '/',
+                // url: 'http://localhost:8000/spln/upload/' + file.name + '/',
                 file: file
             }).then(function(response) {
                 $scope.uploadedFile = true;
@@ -51,17 +52,20 @@
         if (type === 'sources') {
             api.getSources($scope.fileId).then(function(response) {
                 $('.section.one').toggleClass('full');
-                $scope.sources = response.data;
+                $scope.sources = response.data.data;
+                console.log($scope.sources)
             })
         } else if (type === 'topics') {
             api.getTopics($scope.fileId).then(function(response) {
                 $('.section.two').toggleClass('full');
-                $scope.topics = response.data;
+                $scope.topics = response.data.data;
+                console.log($scope.topics)
             })
         } else if (type === 'sentiment') {
             api.getSentimentAnalysis($scope.fileId).then(function(response) {
                 $('.section.three').toggleClass('full');
                 $scope.sentiments = response.data;
+                console.log($scope.sentiments)
             })
         } else if (type === 'ner') {
             api.getNER($scope.fileId).then(function(response) {

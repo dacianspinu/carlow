@@ -12,20 +12,20 @@
         <div class="section one" ng-click="getData('sources')">
             <div class="section-title" ng-click="toggleSection('sources')">Sources</div>
             <div class="content">
-                <div>{{ sources.message }}</div>
 
-
-                <div>{{ sources.data }}</div>
+                <div ng-repeat="source in sources track by $index">
+                    <div><a href="{{source.Url}}">{{ source.Provider }}</a></div>
+                </div>
                 
             </div>
         </div>
         <div class="section two" ng-click="getData('topics')">
-            <div class="section-title" ng-click="toggleSection('topics')">Topics</div>
+            <div class="section-title" ng-click="toggleSection('topics')">Domains</div>
 
             <div class="content" >
                  <div>{{topics.message}}</div>
 
-                 <div>{{topics.data}}</div>
+                 <div><pre>{{topics.topics}}</pre></div>
                  
             </div>
         </div>
@@ -48,7 +48,7 @@
 
                 <div ng-repeat="class in ner track by $index" >
                     <div ng-repeat="(key, val) in class track by $index">
-                        {{key}} : {{val}}
+                        {{key}} : {{val.join(', ')}}
                     </div>
                 </div>
                 
